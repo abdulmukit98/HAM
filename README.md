@@ -16,8 +16,9 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
 * Finally create a branch in your name and start coding.
 
 Enjoy!
-
-
+<div id="header" align="left">
+  <img src="https://github.com/abdulmukit98/HAM/blob/main/_images/mona-the-rivetertocat.png" width="400"/>
+</div>
 
 
 <br><br><br><br><br><br>

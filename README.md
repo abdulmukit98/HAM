@@ -13,6 +13,7 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
     * [ZIP](https://github.com/abdulmukit98/peripherals/blob/main/_files/CH341SER.ZIP)
 * Android Studio is must for writing application. Make sure you use the **BumbleBee** version. The minimum sdk of your app should be nougat 7.1.
 * Since we are using Bluetooth Communication protocol android emulator is for no good. Test your application using **USB Debagging** feature.
+* Install [TeamViewer](https://www.teamviewer.com/en/?utm_source=google&utm_medium=cpc&utm_campaign=restofasia|b|pr|20|jun|exact-brand-only-sn|free|t0|0&utm_content=exact_Brand-only&utm_term=teamviewer&gclid=CjwKCAiAx8KQBhAGEiwAD3EiPzJuTqhA9CP--LOp8RP6620O3koo8DDUASr2YF72UHF0pDHesU8zRhoCOu8QAvD_BwE) for group discussion & debugging.
 * Finally create a branch in your name and start coding.
 * Keep your track on the **Burndown Chart** [here](https://github.com/users/abdulmukit98/projects/3)
 

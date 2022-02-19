@@ -14,7 +14,7 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
 * Android Studio is must for writing application. Make sure you use the **BumbleBee** version. The minimum sdk of your app should be nougat 7.1.
 * Since we are using Bluetooth Communication protocol android emulator is for no good. Test your application using **USB Debagging** feature.
 * Finally create a branch in your name and start coding.
-* Keep your track on the **Burndown Chart** [here](https://github.com/abdulmukit98/HAM/projects?type=beta)
+* Keep your track on the **Burndown Chart** [here](https://github.com/users/abdulmukit98/projects/3)
 
 Enjoy!
 <div id="header" align="left">

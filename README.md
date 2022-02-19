@@ -12,6 +12,7 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
     * [EXE](https://github.com/abdulmukit98/peripherals/blob/main/_files/CH341SER.EXE)  
     * [ZIP](https://github.com/abdulmukit98/peripherals/blob/main/_files/CH341SER.ZIP)
 * Android Studio is must for writing application. Make sure you use the **BumbleBee** version. The minimum sdk of your app should be nougat 7.1.
+* Since we are using Bluetooth Communication protocol android emulator is for no good. Test your application using **USB Debagging** feature.
 
 
 

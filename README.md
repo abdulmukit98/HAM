@@ -14,5 +14,10 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
 * Android Studio with **usb debugging**
 * Finally create a branch in your name and start coding.
 
+### Sprint
+We will run 3 sprint
+* Sprint-1 hardware implementation in breadboard.
+* Android app build
+* Prototype (Optional)
 
 <br><br><br><br><br><br>

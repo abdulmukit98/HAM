@@ -16,7 +16,7 @@ Have a look in the [wiki](https://github.com/abdulmukit98/HAM/wiki) if you feel 
 
 ### Sprint
 We will run 3 sprint
-* Sprint-1 hardware implementation in breadboard.
+* Hardware implementation in breadboard.
 * Android app build
 * Prototype (Optional)
 

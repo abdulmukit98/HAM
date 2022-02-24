@@ -20,4 +20,9 @@ We will run 3 sprint
 * Android app build
 * Prototype (Optional)
 
+### Evironment
+* The Projects tab work like trello board that track our work. 
+* Each (trello card) is issue in github. We can customize a issue just like trello card.
+* Discussion tab is like our slack workspace for communication.
+
 <br><br><br><br><br><br>

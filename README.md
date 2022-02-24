@@ -21,8 +21,8 @@ We will run 3 sprint
 * Prototype (Optional)
 
 ### Evironment
-* The Projects tab work like trello board that track our work. 
-* Each (trello card) is issue in github. We can customize a issue just like trello card.
-* Discussion tab is like our slack workspace for communication.
+* The [Prjects](https://github.com/abdulmukit98/HAM/projects?type=beta) tab work like trello board that track our work. 
+* Each (trello card) is [Issues](https://github.com/abdulmukit98/HAM/issues) in github. We can customize a issue just like trello card.
+* [Discussion](https://github.com/abdulmukit98/HAM/discussions) tab is like our slack workspace for communication.
 
 <br><br><br><br><br><br>

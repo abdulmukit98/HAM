@@ -1,31 +1,41 @@
 #include <SoftwareSerial.h> 
-SoftwareSerial MyBlue(2, 3); // RX | TX 
 
-int LED = 8; 
+SoftwareSerial bluetoothModule(2, 3); // RX | TX 
+
+#define POWER_LED 8 // Load2 Pin Out
+
+int n_load = 4;
+int loadPins[] = { 13, 12, 11, 10 };
 
 void setup() 
-{   
+{
  Serial.begin(9600);
- MyBlue.begin(9600);
- pinMode(LED, OUTPUT);
- Serial.println("Ready to connect\nDefualt password is 1234 or 000");
+ bluetoothModule.begin(9600);
+ for (int i = 0; i < n_load; i++) {
+  pinMode(loadPins[i], OUTPUT);
+ }
+ pinMode(POWER_LED, OUTPUT);
+ delay(500);
 }
 
 void loop() 
-{ 
- if (MyBlue.available())
+{
+ if (bluetoothModule.available())
  {
-   String msg = MyBlue.readString();
-   if (msg == "<turn on>") 
+   String message = bluetoothModule.readString();
+   if (message[0] == '#')
    {
-    digitalWrite(LED, HIGH);
-    MyBlue.println("LED is turned on\n"); // Then send status message to Android
+    int x = 0;
+    for (int i = 1; i <= n_load; i++) {
+      int b = message[i] - '0';
+      x = x | b;
+      digitalWrite(loadPins[i - 1], b);
+    }
+    digitalWrite(POWER_LED, x);
+    bluetoothModule.println("OK " + message);
    }
-   else
-   {
-    digitalWrite(LED, LOW); 
-    MyBlue.println("LED is turned off\n"); // Then send status message to Android
+   else {
+    bluetoothModule.println("NOT_OK " + message);
    }
-   Serial.println(msg);
  }
-}  
+}

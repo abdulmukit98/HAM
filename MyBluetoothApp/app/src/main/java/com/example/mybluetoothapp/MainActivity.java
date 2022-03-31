@@ -19,11 +19,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static android.content.ContentValues.TAG;
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private final static int CONNECTING_STATUS = 1; // used in bluetooth handler to identify message status
     private final static int MESSAGE_READ = 2; // used in bluetooth handler to identify message update
 
+    int[] currentState = new int[]{ 0, 0, 0, 0 };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +55,15 @@ public class MainActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        final TextView textViewInfo = findViewById(R.id.textViewInfo);
-        final Button buttonToggle = findViewById(R.id.buttonToggle);
-        buttonToggle.setEnabled(false);
-        final ImageView imageView = findViewById(R.id.imageView);
-        imageView.setBackgroundColor(getResources().getColor(R.color.colorOff));
+        final Button load1Button = findViewById(R.id.load1Button);
+        final Button load2Button = findViewById(R.id.load2Button);
+        final Button load3Button = findViewById(R.id.load3Button);
+        final Button load4Button = findViewById(R.id.load4Button);
+
+        load1Button.setEnabled(false);
+        load2Button.setEnabled(false);
+        load3Button.setEnabled(false);
+        load4Button.setEnabled(false);
 
         // If a bluetooth device has been selected from SelectDeviceActivity
         deviceName = getIntent().getStringExtra("deviceName");
@@ -89,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
                                 toolbar.setSubtitle("Connected to " + deviceName);
                                 progressBar.setVisibility(View.GONE);
                                 buttonConnect.setEnabled(true);
-                                buttonToggle.setEnabled(true);
+                                load1Button.setEnabled(true);
+                                load2Button.setEnabled(true);
+                                load3Button.setEnabled(true);
+                                load4Button.setEnabled(true);
                                 break;
                             case -1:
                                 toolbar.setSubtitle("Device fails to connect");
@@ -101,16 +113,15 @@ public class MainActivity extends AppCompatActivity {
 
                     case MESSAGE_READ:
                         String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        switch (arduinoMsg.toLowerCase()){
-                            case "led is turned on":
-                                imageView.setBackgroundColor(getResources().getColor(R.color.colorOn));
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
-                                break;
-                            case "led is turned off":
-                                imageView.setBackgroundColor(getResources().getColor(R.color.colorOff));
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
-                                break;
-                        }
+                        Toast.makeText(MainActivity.this, arduinoMsg, Toast.LENGTH_LONG).show();
+//                        switch (arduinoMsg.toLowerCase()){
+//                            case "led is turned on":
+//                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
+//                                break;
+//                            case "led is turned off":
+//                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
+//                                break;
+//                        }
                         break;
                 }
             }
@@ -127,27 +138,100 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Button to ON/OFF LED on Arduino Board
-        buttonToggle.setOnClickListener(new View.OnClickListener() {
+        load1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String cmdText = null;
-                String btnState = buttonToggle.getText().toString().toLowerCase();
-                switch (btnState){
-                    case "turn on":
-                        buttonToggle.setText("Turn Off");
-                        // Command to turn on LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "<turn on>";
+                String btnState = load1Button.getText().toString().toLowerCase();
+                switch (btnState) {
+                    case "turn on 1":
+                        load1Button.setText("Turn Off 1");
+                        currentState[0] = 1;
                         break;
-                    case "turn off":
-                        buttonToggle.setText("Turn On");
-                        // Command to turn off LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "<turn off>";
+                    case "turn off 1":
+                        load1Button.setText("Turn On 1");
+                        currentState[0] = 0;
                         break;
                 }
                 // Send command to Arduino board
+                cmdText = arrayToString(currentState);
                 connectedThread.write(cmdText);
             }
         });
+
+        // Button to ON/OFF LED on Arduino Board
+        load2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cmdText = null;
+                String btnState = load2Button.getText().toString().toLowerCase();
+                switch (btnState) {
+                    case "turn on 2":
+                        load2Button.setText("Turn Off 2");
+                        currentState[1] = 1;
+                        break;
+                    case "turn off 2":
+                        load2Button.setText("Turn On 2");
+                        currentState[1] = 0;
+                        break;
+                }
+                // Send command to Arduino board
+                cmdText = arrayToString(currentState);
+                connectedThread.write(cmdText);
+            }
+        });
+
+        // Button to ON/OFF LED on Arduino Board
+        load3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cmdText = null;
+                String btnState = load3Button.getText().toString().toLowerCase();
+                switch (btnState) {
+                    case "turn on 3":
+                        load3Button.setText("Turn Off 3");
+                        currentState[2] = 1;
+                        break;
+                    case "turn off 3":
+                        load3Button.setText("Turn On 3");
+                        currentState[2] = 0;
+                        break;
+                }
+                // Send command to Arduino board
+                cmdText = arrayToString(currentState);
+                connectedThread.write(cmdText);
+            }
+        });
+
+        // Button to ON/OFF LED on Arduino Board
+        load4Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cmdText = null;
+                String btnState = load4Button.getText().toString().toLowerCase();
+                switch (btnState) {
+                    case "turn on 4":
+                        load4Button.setText("Turn Off 4");
+                        currentState[3] = 1;
+                        break;
+                    case "turn off 4":
+                        load4Button.setText("Turn On 4");
+                        currentState[3] = 0;
+                        break;
+                }
+                // Send command to Arduino board
+                cmdText = arrayToString(currentState);
+                connectedThread.write(cmdText);
+            }
+        });
+    }
+
+    protected String arrayToString(int[] array) {
+        String s = "#";
+        for (int i = 0; i < array.length; i++) {
+            s = s + String.valueOf(array[i]);
+        }
+        return s;
     }
 
     /* ============================ Thread to Create Bluetooth Connection =================================== */

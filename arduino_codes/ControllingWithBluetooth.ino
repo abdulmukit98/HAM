@@ -2,7 +2,7 @@
 
 SoftwareSerial bluetoothModule(2, 3); // RX | TX 
 
-#define POWER_LED 8 // Load2 Pin Out
+#define POWER_LED 8
 
 int n_load = 4;
 int loadPins[] = { 13, 12, 11, 10 };
